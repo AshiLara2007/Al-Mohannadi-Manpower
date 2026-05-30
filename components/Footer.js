@@ -29,7 +29,7 @@ export default function Footer() {
           <ul className="space-y-2 text-sm text-gray-500 dark:text-gray-400">
             <li><i className="fa-solid fa-location-dot text-primary w-5"></i> Doha, Qatar</li>
             <li><i className="fa-solid fa-phone text-primary w-5"></i> +974 XXXX XXXX</li>
-            <li><i className="fa-solid fa-envelope text-primary w-5"></i> info@almohannadi.qa</li>
+            <li><i className="fa-solid fa-envelope text-primary w-5"></i> info@almohannadimanpower.com</li>
           </ul>
         </div>
       </div>
