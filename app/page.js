@@ -114,7 +114,7 @@ export default function Home() {
     // EmailJS configuration from environment variables
     const SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 'almohannadimanpower_1978';
     const TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 'template_fyp38vh';
-    const PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+    const PUBLIC_KEY = 'vd292Fz6W89XFSM10';
     
     if (!PUBLIC_KEY) {
       console.error('EmailJS Public Key not found!');
