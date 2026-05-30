@@ -8,7 +8,7 @@ export default function Hero() {
 
   return (
     <section className="relative w-full h-screen flex items-center px-6 md:px-20" style={{
-      background: `linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.6) 100%), url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1920&q=80')`,
+      background: `linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.6) 100%), url('https://github.com/AshiLara2007/ZODManpower/blob/main/backgroundlimage1.png?raw=true')`,
       backgroundSize: 'cover', backgroundPosition: 'center'
     }}>
       <div className="max-w-[650px] mt-16">

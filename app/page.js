@@ -1922,8 +1922,8 @@ export default function Home() {
         
         .avatar-placeholder { width: 55px; height: 55px; background: var(--bg-tertiary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--text-secondary); font-size: 22px; margin-bottom: 25px; margin-top: 5px; overflow: hidden; }
         
-        .hero-container { position: relative; width: 100%; height: 100vh; display: flex; align-items: center; padding: 0 80px; background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.6) 100%), url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center; }
-        body.dark-theme .hero-container { background: linear-gradient(135deg, rgba(15,23,42,0.95) 0%, rgba(30,41,59,0.8) 100%), url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center; }
+        .hero-container { position: relative; width: 100%; height: 100vh; display: flex; align-items: center; padding: 0 80px; background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.6) 100%), url('https://github.com/AshiLara2007/ZODManpower/blob/main/backgroundlimage1.png?raw=true'); background-size: cover; background-position: center; }
+        body.dark-theme .hero-container { background: linear-gradient(135deg, rgba(15,23,42,0.95) 0%, rgba(30,41,59,0.8) 100%), url('https://github.com/AshiLara2007/ZODManpower/blob/main/backgroundlimage1.png?raw=true'); background-size: cover; background-position: center; }
         .hero-content { max-width: 650px; margin-top: 60px; }
         .hero-title { font-size: 64px; font-weight: 800; line-height: 1.1; color: var(--text-dark); letter-spacing: -1px; }
         .hero-title .highlight { color: #53B1E0; display: block; }
