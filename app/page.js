@@ -116,13 +116,6 @@ export default function Home() {
     const TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 'template_fyp38vh';
     const PUBLIC_KEY = 'vd292Fz6W89XFSM10';
     
-    if (!PUBLIC_KEY) {
-      console.error('EmailJS Public Key not found!');
-      addStyledNotification('error', 'Configuration Error', 'Email service not configured. Please contact support.');
-      setIsSending(false);
-      return;
-    }
-    
     try {
       const result = await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
       console.log('Email sent successfully:', result.text);
@@ -375,6 +368,12 @@ export default function Home() {
       
       await trackLead('Admin Panel', `Added candidate: ${candidateData.name}`);
       await loadTalents();
+      
+      // Force admin table update after adding candidate
+      setTimeout(() => {
+        setAdminSearchQuery(prev => prev + ' ');
+        setTimeout(() => setAdminSearchQuery(prev => prev.slice(0, -1)), 50);
+      }, 100);
       
       addStyledNotification('success', 'Candidate Added', `${candidateData.name} has been successfully added to the database`);
       
@@ -634,6 +633,28 @@ export default function Home() {
     if (modal) modal.classList.remove('active');
     setEditTalent(null);
     setIsSubmitting(false);
+    
+    // Clear all form fields and files
+    setSelectedPhotoFile(null);
+    setPhotoPreview(null);
+    setSelectedCvFile(null);
+    setCvFileName('');
+    
+    // Clear form input fields if refs exist
+    if (nameRef) nameRef.value = '';
+    if (dobRef) dobRef.value = '';
+    if (genderRef) genderRef.value = 'Male';
+    if (jobRef) jobRef.value = 'Driver';
+    if (countryRef) countryRef.value = 'Indonesia';
+    if (religionRef) religionRef.value = 'Muslim';
+    if (salaryRef) salaryRef.value = '0';
+    if (experienceRef) experienceRef.value = '0-1 Year';
+    if (maritalStatusRef) maritalStatusRef.value = 'Single';
+    if (workerTypeRef) workerTypeRef.value = 'Recruitment Workers';
+    
+    // Clear file input values
+    if (picRef) picRef.value = '';
+    if (cvRef) cvRef.value = '';
   };
 
   const handleAddCandidateSubmit = async (e) => {
@@ -1219,7 +1240,8 @@ export default function Home() {
       photo: "الصورة", cv_label: "السيرة الذاتية", choose_photo: "اختر صورة", choose_cv: "اختر السيرة", save: "حفظ", cancel: "إلغاء", saving: "جاري الحفظ...",
       admin_dashboard: "لوحة التحكم", staff_portal: "بوابة الموظفين", logout: "تسجيل الخروج", manage_candidates: "إدارة المرشحين", add_candidate: "إضافة مرشح",
       manage_users: "إدارة المستخدمين", add_new_user: "إضافة مستخدم جديد", status: "الحالة", actions: "إجراءات",
-      footer_text: "حلول القوى العاملة المهنية في الدوحة.", copyright: "© 2026 المهندي للقوى العاملة.",
+      footer_text: "حلول القوى العاملة المهنية في الدوحة.",
+      copyright: "© 2026 المهندي للقوى العاملة.",
       quick_links: "روابط سريعة", contact_us: "اتصل بنا", address: "الدوحة، قطر", phone: "+974 XXXX XXXX", email: "info@almohannadi.qa",
       intro_title: "اختر لغتك", intro_subtitle: "يرجى تحديد اللغة المفضلة", lang_en: "المتابعة باللغة الإنجليزية", lang_ar: "المتابعة باللغة العربية",
       theme_label: "مظهر الموقع", theme_light: "الوضع الفاتح", theme_dark: "الوضع الداكن", reset_lang: "تغيير اللغة",
@@ -1348,6 +1370,7 @@ export default function Home() {
   // Main return
   return (
     <div className={currentLanguage === 'AR' ? 'rtl' : 'ltr'}>
+      {/* STYLES */}
       <style>{`
         .rtl { direction: rtl; text-align: right; }
         
